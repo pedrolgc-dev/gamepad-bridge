@@ -4,11 +4,11 @@
 
 **A simple, lightweight android app that reads a gamepad plugged into the phone via USB-C and sends its input over Bluetooth to a PC, so the phone behaves like a normal Bluetooth controller, giving new purpose to gamepads that are USB-C only.**
 
-![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white&style=flat-square)
-![Android](https://img.shields.io/badge/Android-API%2024%2B-3DDC84?logo=android&logoColor=white&style=flat-square)
-![Bluetooth HID](https://img.shields.io/badge/Bluetooth-HID-0082FC?logo=bluetooth&logoColor=white&style=flat-square)
-[Download](https://github.com/pedrolgc-dev/gamepad-bridge/releases/latest) · [Features](#features) · [How it works](#how-it-works) · [Getting started](#getting-started)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white&style=for-the-badge)
+![Android](https://img.shields.io/badge/Android-API%2024%2B-3DDC84?logo=android&logoColor=white&style=for-the-badge)
+![Bluetooth HID](https://img.shields.io/badge/Bluetooth-HID-0082FC?logo=bluetooth&logoColor=white&style=for-the-badge)
 
+[![Download APK](https://img.shields.io/badge/Download-APK-3DDC84?logo=android&logoColor=white&style=for-the-badge)](https://github.com/pedrolgc-dev/gamepad-bridge/releases/latest)
 <br>
 
 <img src="docs/screenshot-main.png" width="260" alt="Main screen">
