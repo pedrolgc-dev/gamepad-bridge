@@ -21,6 +21,7 @@
 ## Features
 
 | | |
+|---|---|
 | **Live controller view** | Buttons, sticks, D-pad and triggers light up as you press them |
 | **Standard HID gamepad** | The PC sees the phone as a normal Bluetooth gamepad |
 | **Controller detection** | Shows the name of the connected gamepad and the connection status |
