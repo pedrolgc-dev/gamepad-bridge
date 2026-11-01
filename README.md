@@ -42,10 +42,9 @@
 
 **Requirements:** A phone running Android 9 or later (the app opens on Android 7+, but Bluetooth sending needs Android 9+), and a USB-C gamepad.
 
-1. Run the app on your phone (use wireless debugging, since the USB-C port is occupied by the gamepad).
-2. Plug in the gamepad and grant the Bluetooth permissions.
-3. Tap **Make Discoverable**, then pair the phone from your PC's Bluetooth settings.
-4. Test the gamepad on Windows with `joy.cpl`.
+1. Plug in the gamepad and grant the Bluetooth permissions.
+2. Tap **Make Discoverable**, then pair the phone from your PC's Bluetooth settings.
+3. Test the gamepad on Windows with `joy.cpl`.
 
 ---
 
