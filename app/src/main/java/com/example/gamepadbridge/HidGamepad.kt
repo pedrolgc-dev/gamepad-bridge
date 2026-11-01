@@ -91,7 +91,7 @@ class HidGamepad(
                     BATTERY_REPORT_ID -> hid?.replyReport(device, type, id, byteArrayOf(0xFF.toByte()))
                     else -> hid?.replyReport(device, type, id, gamepadState.toReport())
                 }
-            } catch (_: SecurityException) {
+            } catch (_: Exception) {
             }
         }
 
@@ -99,7 +99,7 @@ class HidGamepad(
         override fun onSetReport(device: BluetoothDevice, type: Byte, id: Byte, data: ByteArray) {
             try {
                 hid?.reportError(device, BluetoothHidDevice.ERROR_RSP_SUCCESS)
-            } catch (_: SecurityException) {
+            } catch (_: Exception) {
             }
         }
 
@@ -111,25 +111,24 @@ class HidGamepad(
     private val serviceListener = object : BluetoothProfile.ServiceListener {
         override fun onServiceConnected(profileType: Int, proxy: BluetoothProfile) {
             if (profileType != BluetoothProfile.HID_DEVICE) return
-            val device = proxy as BluetoothHidDevice
+            val device = proxy as? BluetoothHidDevice ?: return
             hid = device
 
-            val sdp = BluetoothHidDeviceAppSdpSettings(
-                DEVICE_NAME,
-                DEVICE_NAME,
-                "Microsoft",
-                BluetoothHidDevice.SUBCLASS2_GAMEPAD,
-                DESCRIPTOR
-            )
-
-            setAdapterName()
-
             try {
-                // QoS = null -> default values.
+                val sdp = BluetoothHidDeviceAppSdpSettings(
+                    DEVICE_NAME,
+                    DEVICE_NAME,
+                    "Microsoft",
+                    BluetoothHidDevice.SUBCLASS2_GAMEPAD,
+                    DESCRIPTOR
+                )
+
+                setAdapterName()
+
                 val ok = device.registerApp(sdp, null, null, context.mainExecutor, callback)
                 if (!ok) onStatus("Failed to register gamepad.")
-            } catch (_: SecurityException) {
-                onStatus("Bluetooth permission required to register gamepad.")
+            } catch (e: Exception) {
+                onStatus("Error registering gamepad: ${e.localizedMessage}")
             }
         }
 
@@ -144,7 +143,7 @@ class HidGamepad(
             if (a.name != DEVICE_NAME) {
                 a.name = DEVICE_NAME
             }
-        } catch (_: SecurityException) {
+        } catch (_: Exception) {
         }
     }
 
@@ -152,16 +151,16 @@ class HidGamepad(
     // Public API
     // ---------------------------------------------------------------
     override fun start() {
-        val a = adapter
-        if (a == null || !a.isEnabled) {
-            onStatus("Bluetooth unavailable or turned off.")
-            return
-        }
-        setAdapterName()
         try {
+            val a = adapter
+            if (a == null || !a.isEnabled) {
+                onStatus("Bluetooth unavailable or turned off.")
+                return
+            }
+            setAdapterName()
             a.getProfileProxy(context, serviceListener, BluetoothProfile.HID_DEVICE)
-        } catch (_: SecurityException) {
-            onStatus("Bluetooth permission required.")
+        } catch (e: Exception) {
+            onStatus("Bluetooth HID error: ${e.localizedMessage}")
         }
     }
 
@@ -172,7 +171,7 @@ class HidGamepad(
                 it.unregisterApp()
                 adapter?.closeProfileProxy(BluetoothProfile.HID_DEVICE, it)
             }
-        } catch (_: SecurityException) {
+        } catch (_: Exception) {
         }
         hid = null
         host = null
@@ -185,7 +184,7 @@ class HidGamepad(
             a.bondedDevices.orEmpty().map { dev ->
                 getDeviceName(dev) to dev
             }
-        } catch (_: SecurityException) {
+        } catch (_: Exception) {
             emptyList()
         }
     }
@@ -194,8 +193,8 @@ class HidGamepad(
     override fun connectTo(device: BluetoothDevice) {
         try {
             hid?.connect(device)
-        } catch (_: SecurityException) {
-            onStatus("Permission error when connecting to device.")
+        } catch (e: Exception) {
+            onStatus("Error connecting to device: ${e.localizedMessage}")
         }
     }
 

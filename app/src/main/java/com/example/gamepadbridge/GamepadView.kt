@@ -154,7 +154,9 @@ class GamepadView @JvmOverloads constructor(
 
         // Percentage readout below meter (cached string array avoids allocations)
         val pct = (v * 100f).roundToInt().coerceIn(0, 100)
-        label(c, PERCENT_STRINGS[pct], cx, bottom + 32f, 22f, GREEN)
+        if (pct > 0) {
+            label(c, PERCENT_STRINGS[pct], cx, bottom + 32f, 22f, GREEN)
+        }
     }
 
     private fun drawTrigger(c: Canvas, left: Float, top: Float, text: String, value: Float) {

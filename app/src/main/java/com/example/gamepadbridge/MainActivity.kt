@@ -86,14 +86,20 @@ class MainActivity : AppCompatActivity() {
         refreshController()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            hid = HidGamepad(this, state) { msg -> runOnUiThread { setStatus(msg) } }.also {
-                it.onConnectionChanged = { connected ->
-                    statusDot.setBackgroundResource(
-                        if (connected) R.drawable.gp_dot_on else R.drawable.gp_dot_off
-                    )
+            try {
+                hid = HidGamepad(this, state) { msg -> runOnUiThread { setStatus(msg) } }.also {
+                    it.onConnectionChanged = { connected ->
+                        runOnUiThread {
+                            statusDot.setBackgroundResource(
+                                if (connected) R.drawable.gp_dot_on else R.drawable.gp_dot_off
+                            )
+                        }
+                    }
                 }
+                startBluetooth()
+            } catch (e: Exception) {
+                setStatus("Bluetooth HID error: ${e.localizedMessage}")
             }
-            startBluetooth()
         } else {
             setStatus("Bluetooth transmission requires Android 9 (API 28) or higher. Controller is read locally, but cannot be forwarded via Bluetooth.")
         }
@@ -125,7 +131,7 @@ class MainActivity : AppCompatActivity() {
             if (adapter?.isEnabled == true && adapter.name != BLUETOOTH_CONTROLLER_NAME) {
                 adapter.name = BLUETOOTH_CONTROLLER_NAME
             }
-        } catch (_: SecurityException) {
+        } catch (_: Exception) {
         }
     }
 
