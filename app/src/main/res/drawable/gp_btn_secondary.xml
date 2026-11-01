@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#40FFFFFF">
+    <item>
+        <layer-list>
+            <!-- Diffused translucent base to soften background lines for readability -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#4D141822" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+            <!-- Frosted glass sheen with subtle luminous border -->
+            <item>
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#26FFFFFF"
+                        android:centerColor="#0AFFFFFF"
+                        android:endColor="#14FFFFFF"
+                        android:type="linear" />
+                    <corners android:radius="14dp" />
+                    <stroke
+                        android:width="1.2dp"
+                        android:color="#44FFFFFF" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

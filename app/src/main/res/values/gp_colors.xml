@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gp_bg">#FF000000</color>
+    <color name="gp_surface">#FF121418</color>
+    <color name="gp_stroke">#FF222630</color>
+    <color name="gp_accent">#FF4F8CFF</color>
+    <color name="gp_text">#FFE6EAF2</color>
+    <color name="gp_text_dim">#FF8A92A0</color>
+    <color name="gp_ok">#FF22C55E</color>
+    <color name="gp_off">#FF4B5262</color>
+</resources>

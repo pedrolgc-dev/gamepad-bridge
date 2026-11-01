@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gp_title">Gamepad Bridge</string>
+    <string name="gp_status_starting">Starting…</string>
+    <string name="gp_btn_discoverable">Make Discoverable</string>
+    <string name="gp_btn_connect">Connect to PC</string>
+    <string name="gp_controller_none">No controller detected</string>
+    <string name="gp_controller_found">Controller: %1$s</string>
+</resources>
