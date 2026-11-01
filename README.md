@@ -7,7 +7,7 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white&style=flat-square)
 ![Android](https://img.shields.io/badge/Android-API%2024%2B-3DDC84?logo=android&logoColor=white&style=flat-square)
 ![Bluetooth HID](https://img.shields.io/badge/Bluetooth-HID-0082FC?logo=bluetooth&logoColor=white&style=flat-square)
-[![Download APK](https://img.shields.io/badge/Download-APK-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/pedrolgc-dev/gamepad-bridge/releases/latest)
+[Download](https://github.com/pedrolgc-dev/gamepad-bridge/releases/latest) · [Features](#features) · [How it works](#how-it-works) · [Getting started](#getting-started)
 
 <br>
 
