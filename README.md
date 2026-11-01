@@ -44,7 +44,7 @@
 
 1. Plug in the gamepad and grant the Bluetooth permissions.
 2. Tap **Make Discoverable**, then pair the phone from your PC's Bluetooth settings.
-3. Test the gamepad on Windows with `joy.cpl`.
+3. Test the gamepad on Windows with any application.
 
 ---
 
