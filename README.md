@@ -21,7 +21,6 @@
 ## Features
 
 | | |
-|---|---|
 | **Live controller view** | Buttons, sticks, D-pad and triggers light up as you press them |
 | **Standard HID gamepad** | The PC sees the phone as a normal Bluetooth gamepad |
 | **Controller detection** | Shows the name of the connected gamepad and the connection status |
@@ -32,12 +31,6 @@
 ---
 
 ## How it works
-
-```mermaid
-flowchart LR
-    A[USB-C gamepad] -->|InputDevice events| B[Android app]
-    B -->|Bluetooth HID report| C[PC]
-```
 
 1. Android delivers the gamepad's key and motion events to the app.
 2. The app stores them in a single state object and packs it into a 9-byte HID report.
@@ -74,7 +67,6 @@ app/src/main/
 ## Limitations
 
 - The app must stay open on screen, because Android only delivers gamepad events to the foreground app.
-- The PC sees a generic HID gamepad, not an Xbox (XInput) controller. Some games need Steam Input or a remapping tool.
 - Bluetooth HID support varies between phone manufacturers.
 
 ---
