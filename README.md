@@ -7,7 +7,6 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white&style=flat-square)
 ![Android](https://img.shields.io/badge/Android-API%2024%2B-3DDC84?logo=android&logoColor=white&style=flat-square)
 ![Bluetooth HID](https://img.shields.io/badge/Bluetooth-HID-0082FC?logo=bluetooth&logoColor=white&style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
 
 <br>
 
@@ -71,7 +70,3 @@ app/src/main/
 - Bluetooth HID support varies between phone manufacturers.
 
 ---
-
-## License
-
-Released under the MIT License.
